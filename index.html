@@ -15,9 +15,9 @@
         }
         
         body {
-            /* Fundo moderno com um degradê premium escuro (Cool Slate / Dark Tech) */
-            background: linear-gradient(135deg, #0d0e12 0%, #1a1c24 100%);
-            color: #ffffff;
+        
+            background: background-color: #0b0b0b;
+            color: #0b0b0b;
             /* Aplicando a fonte League Spartan em todo o site */
             font-family: 'League Spartan', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             display: flex;
@@ -40,13 +40,25 @@
             margin-bottom: 15px;
         }
 
-        .bio {
-            color: #9898ed;
-            font-size: 20px;
-            max-width: 290px;
-            line-height: 1.5;
+       .bio {
+            color: #ffffff;
+            font-size: 14px; /* Diminuído levemente para garantir que caiba em telas de celulares menores sem quebrar */
+            max-width: 100%; /* Removeu o limite antigo de 290px que forçava a quebra */
+            line-height: 1.6;
             font-weight: 500;
             margin: 12px 0 0 0;
+            padding: 0 10px;
+        }
+        
+        /* Força a primeira linha a ficar sempre junta */
+        .line-one {
+            display: block;
+            white-space: nowrap; 
+        }
+        
+        .line-two {
+            display: block;
+        
         }
 
         .links-container {
@@ -97,10 +109,13 @@
 </head>
 <body>
 
-    <div class="profile-container">
+  <div class="profile-container">
         <img src="logo-pollo.png" alt="Pollo Cell Logo" class="brand-logo-img">
         
-        <p class="bio">Assistência Técnica Móvel & Acessórios <br>Buscamos e entregamos em toda Salvador, BA </p>
+        <p class="bio">
+            <span class="line-one">Assistência Técnica Móvel & Acessórios</span>
+            <span class="line-two">Buscamos e entregamos em toda Salvador, BA 📍</span>
+        </p>
     </div>
 
     <div class="links-container">
