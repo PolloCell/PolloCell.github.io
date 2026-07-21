@@ -140,15 +140,50 @@
             box-shadow: 0 6px 25px rgba(36, 161, 222, 0.4);
         }
 
-        /* TikTok: Borda Rosa/Magenta */
-        .btn-tiktok {
-            border: 1px solid #FE0979;
+        /* YouTube: Borda Neon Vermelha */
+        .btn-youtube {
+            border: 1px solid #FF0000;
         }
-        .btn-tiktok:hover {
-            border-color: #25F4EE;
+        .btn-youtube:hover {
+            border-color: #FF4444;
             background-color: rgba(17, 17, 17, 0.8);
             transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(37, 244, 238, 0.4);
+            box-shadow: 0 6px 25px rgba(255, 0, 0, 0.4);
+        }
+
+        /* Instagram: Borda Neon Rosa/Magenta */
+        .btn-instagram {
+            border: 1px solid #E1306C;
+        }
+        .btn-instagram:hover {
+            border-color: #F77737;
+            background-color: rgba(17, 17, 17, 0.8);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(225, 48, 108, 0.4);
+        }
+
+        /* TikTok: Borda Neon Gradiente 100% Vazada */
+        .btn-tiktok {
+            position: relative;
+            border: 1px solid transparent; /* Ocupa o espaço da borda igual aos outros */
+        }
+        .btn-tiktok::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px; /* Espessura exata da borda */
+            background: linear-gradient(90deg, #25F4EE, #FE2C55);
+            /* O truque da máscara: recorta o meio e deixa o gradiente SÓ na borda */
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+        .btn-tiktok:hover {
+            background-color: rgba(17, 17, 17, 0.8);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(37, 244, 238, 0.3), 0 6px 25px rgba(254, 44, 85, 0.3);
         }
 
         /* Kwai: Borda Neon Laranja */
@@ -230,16 +265,24 @@
                     💬 Canal no Telegram
                 </a>
                 
+                <a href="https://www.youtube.com/@PolloCellOficial" class="link-button btn-youtube" target="_blank">
+                    YouTube
+                </a>
+
+                <a href="https://www.instagram.com/pollocell.oficial/" class="link-button btn-instagram" target="_blank">
+                    Instagram
+                </a>
+
                 <a href="https://www.tiktok.com/@_pollocell?lang=pt-BR" class="link-button btn-tiktok" target="_blank">
                     TikTok
                 </a>
                 
-                <a href="https://k.kwai.com/u/@pollocell.oficial/HxClNQbN" class="link-button btn-kwai" target="_blank">
-                    Kwai
-                </a>
-                
                 <a href="https://www.facebook.com/share/1T3GNW9UwF/" class="link-button btn-facebook" target="_blank">
                     Página do Facebook
+                </a>
+                
+                <a href="https://k.kwai.com/u/@pollocell.oficial/HxClNQbN" class="link-button btn-kwai" target="_blank">
+                    Kwai
                 </a>
                 
                 <a href="SEU_LINK_DA_SHOPEE" class="link-button btn-shopee" target="_blank">
@@ -260,5 +303,7 @@
         
     </div>
 
+</body>
+</html>
 </body>
 </html>
