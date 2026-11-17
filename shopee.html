@@ -3,150 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-width=1.0">
-    <title>Recomendados Shopee - Apolo Bsa</title>
+    <title>Pollo Cell - Shopee</title>
     <style>
-        /* Estilos base focados em mobile (estilo Link-in-bio) */
+        /* Fonte oficial do Google parecida com a de Apps */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+        
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5; /* Fundo cinza claro da Shopee */
+            color: #222;
         }
-        .container {
-            width: 100%;
-            max-width: 480px;
-            background-color: #ffffff;
-            min-height: 100vh;
-            padding: 30px 20px;
-            box-sizing: border-box;
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .header img {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            border: 3px solid #ee4d2d; /* Laranja Shopee */
-        }
-        .header h1 {
-            font-size: 20px;
-            color: #333;
-            margin: 10px 0 5px 0;
-        }
-        .header p {
-            font-size: 14px;
-            color: #666;
-            margin: 0;
-        }
-        
-        /* Lista de Produtos */
-        .product-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .product-card {
+
+        /* Barra Laranja no Topo */
+        .shopee-header {
+            background-color: #ee4d2d;
+            color: white;
+            padding: 15px;
             display: flex;
             align-items: center;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            padding: 10px;
-            text-decoration: none;
-            color: #333;
-            transition: transform 0.2s, box-shadow 0.2s;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        .product-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(238, 77, 45, 0.15);
-            border-color: #ee4d2d;
+        .back-btn {
+            color: white;
+            text-decoration: none;
+            font-size: 22px;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        .header-title {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        /* Área de Perfil da Loja */
+        .profile-section {
+            background: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .profile-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid #ee4d2d;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        .profile-info h1 {
+            margin: 0;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .verified-badge {
+            background: #ee4d2d;
+            color: white;
+            font-size: 10px;
+            padding: 2px 5px;
+            border-radius: 2px;
+            font-weight: bold;
+        }
+        .profile-info p {
+            margin: 4px 0 0 0;
+            font-size: 12px;
+            color: #757575;
+        }
+
+        /* Título da Seção (Estilo App) */
+        .section-title {
+            padding: 12px 15px;
+            background: white;
+            font-size: 14px;
+            font-weight: bold;
+            color: #ee4d2d;
+            text-align: center;
+            border-bottom: 2px solid #ee4d2d;
+        }
+
+        /* Grid de Produtos (2 por linha igual mobile) */
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            padding: 8px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 2px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
         .product-img {
-            width: 70px;
-            height: 70px;
-            border-radius: 8px;
+            width: 100%;
+            aspect-ratio: 1/1;
             object-fit: cover;
-            margin-right: 15px;
-            background-color: #f0f0f0;
         }
-        .product-info {
+        .product-details {
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
             flex-grow: 1;
         }
         .product-title {
-            font-size: 15px;
-            font-weight: bold;
-            margin: 0 0 5px 0;
-        }
-        .product-btn {
             font-size: 12px;
+            line-height: 1.4;
+            /* Limita o texto a 2 linhas com "..." no final */
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+        .product-tag {
+            border: 1px solid #ee4d2d;
             color: #ee4d2d;
+            font-size: 9px;
+            padding: 1px 4px;
+            border-radius: 2px;
+            align-self: flex-start;
+            margin-bottom: 5px;
+        }
+        .product-bottom {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .product-price {
+            color: #ee4d2d;
+            font-size: 14px;
             font-weight: bold;
         }
-        
-        /* Botão de voltar */
-        .back-btn {
-            display: block;
-            text-align: center;
-            margin-top: 30px;
-            color: #666;
-            text-decoration: none;
-            font-size: 14px;
-        }
-        .back-btn:hover {
-            text-decoration: underline;
+        .product-sales {
+            font-size: 10px;
+            color: #757575;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Cabeçalho -->
-        <div class="header">
-            <!-- Substitua pelo link da sua foto de perfil -->
-            <img src="URL_DA_SUA_FOTO_AQUI" alt="Apolo Bsa">
-            <h1>Recomendados do Apolo</h1>
-            <p>Os melhores produtos testados nos vídeos 🎥</p>
+    <!-- Barra Laranja de Navegação -->
+    <div class="shopee-header">
+        <a href="index.html" class="back-btn">←</a>
+        <div class="header-title">Recomendados</div>
+    </div>
+
+    <!-- Perfil Pollo Cell -->
+    <div class="profile-section">
+        <!-- Coloque o link da foto do perfil da Pollo Cell aqui -->
+        <img src="URL_DA_SUA_FOTO" alt="Pollo Cell" class="profile-img">
+        <div class="profile-info">
+            <h1>Pollo Cell <span class="verified-badge">Oficial</span></h1>
+            <p>Ferramentas testadas e aprovadas na bancada.</p>
         </div>
+    </div>
 
-        <!-- Lista de Links dos Produtos -->
-        <div class="product-list">
-            
-            <!-- PRODUTO 1 -->
-            <a href="https://s.shopee.com.br/AAIajfud5u" target="_blank" class="product-card">
-                <img src="https://down-ws-br.img.susercontent.com/br-11134207-820m1-mtdw9dzq5vcw6e.webp" alt="Produto 1" class="product-img">
-                <div class="product-info">
-                    <p class="product-title"> Fone HeadSet JBL</p>
-                    <span class="product-btn">comprar ➔</span>
+    <!-- Separador -->
+    <div class="section-title">
+        DESCOBERTAS DO DIA
+    </div>
+
+    <!-- Lista de Produtos (Grid) -->
+    <div class="product-grid">
+        
+        <!-- PRODUTO 1 -->
+        <a href="SEU_LINK_DE_AFILIADO" target="_blank" class="product-card">
+            <img src="LINK_DA_IMAGEM_DO_PRODUTO" class="product-img">
+            <div class="product-details">
+                <div class="product-title">Microfone de Lapela Sem Fio para Gravação de Vídeos</div>
+                <span class="product-tag">Frete Grátis</span>
+                <div class="product-bottom">
+                    <span class="product-price">Conferir</span>
+                    <span class="product-sales">1,2k vendidos</span>
                 </div>
-            </a>
+            </div>
+        </a>
 
-            <!-- PRODUTO 2 -->
-            <a href="SEU_LINK_DE_AFILIADO_AQUI" target="_blank" class="product-card">
-                <img src="URL_DA_IMAGEM_DO_PRODUTO_AQUI" alt="Produto 2" class="product-img">
-                <div class="product-info">
-                    <p class="product-title">Kit Ferramentas Manutenção Celular</p>
-                    <span class="product-btn">Ver na Shopee ➔</span>
+        <!-- PRODUTO 2 -->
+        <a href="SEU_LINK_DE_AFILIADO" target="_blank" class="product-card">
+            <img src="LINK_DA_IMAGEM_DO_PRODUTO" class="product-img">
+            <div class="product-details">
+                <div class="product-title">Kit 115 Em 1 Ferramentas Magnéticas Manutenção Celular</div>
+                <span class="product-tag">Mais Vendido</span>
+                <div class="product-bottom">
+                    <span class="product-price">Conferir</span>
+                    <span class="product-sales">540 vendidos</span>
                 </div>
-            </a>
+            </div>
+        </a>
 
-            <!-- PRODUTO 3 -->
-            <a href="SEU_LINK_DE_AFILIADO_AQUI" target="_blank" class="product-card">
-                <img src="URL_DA_IMAGEM_DO_PRODUTO_AQUI" alt="Produto 3" class="product-img">
-                <div class="product-info">
-                    <p class="product-title">Ring Light com Tripé</p>
-                    <span class="product-btn">Ver na Shopee ➔</span>
+        <!-- PRODUTO 3 -->
+        <a href="SEU_LINK_DE_AFILIADO" target="_blank" class="product-card">
+            <img src="LINK_DA_IMAGEM_DO_PRODUTO" class="product-img">
+            <div class="product-details">
+                <div class="product-title">Multímetro Digital Profissional com Beep</div>
+                <span class="product-tag">Promoção</span>
+                <div class="product-bottom">
+                    <span class="product-price">Conferir</span>
+                    <span class="product-sales">89 vendidos</span>
                 </div>
-            </a>
+            </div>
+        </a>
 
-        </div>
-
-        <!-- Botão Voltar -->
-        <a href="index.html" class="back-btn">← Voltar para a página principal</a>
     </div>
 
 </body>
