@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-width=1.0">
+    <title>Pollo Cell - Mercado Livre</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #ebebeb; /* Fundo cinza padrão do ML */
+            color: #333;
+        }
+
+        /* Barra Amarela Clássica do ML */
+        .ml-header {
+            background-color: #fff159; /* Amarelo Mercado Livre */
+            color: #333;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        .back-btn {
+            color: #333;
+            text-decoration: none;
+            font-size: 22px;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        .header-title {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        /* Área de Perfil */
+        .profile-section {
+            background: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        }
+        .profile-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid #ebebeb;
+            margin-right: 12px;
+            object-fit: cover;
+        }
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .profile-info h1 {
+            margin: 0;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #333;
+        }
+        .verified-badge {
+            background: #3483fa; /* Azul Link do ML */
+            color: white;
+            font-size: 10px;
+            padding: 2px 5px;
+            border-radius: 2px;
+            font-weight: bold;
+        }
+        .profile-info p {
+            margin: 4px 0 0 0;
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Título da Seção */
+        .section-title {
+            padding: 12px 15px;
+            background: white;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Grid de Produtos (5 por linha) */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 4px;
+            padding: 6px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 4px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        .product-img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .product-details {
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .product-title {
+            font-size: 9px;
+            line-height: 1.2;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 4px;
+            color: #333;
+        }
+        /* Selo FULL em Verde Itálico */
+        .product-tag {
+            color: #00a650; /* Verde Oficial ML */
+            font-size: 9px;
+            font-weight: 900;
+            font-style: italic;
+            margin-bottom: 3px;
+        }
+        .product-action {
+            color: #3483fa; /* Azul Oficial ML */
+            font-size: 10px;
+            font-weight: bold;
+            margin-top: auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Topo Amarelo -->
+    <div class="ml-header">
+        <a href="index.html" class="back-btn">←</a>
+        <div class="header-title">Ofertas Pollo Cell</div>
+    </div>
+
+    <!-- Perfil da Loja -->
+    <div class="profile-section">
+        <!-- COLOQUE AQUI O LINK DA SUA LOGO COMO FEZ NA OUTRA PÁGINA -->
+        <img src="URL_DA_SUA_LOGO_AQUI" alt="Logo Pollo Cell" class="profile-img">
+        
+        <div class="profile-info">
+            <h1>Pollo Cell <span class="verified-badge">Oficial</span></h1>
+            <p>Recomendações da Bancada</p>
+        </div>
+    </div>
+
+    <div class="section-title">
+        MAIS VENDIDOS
+    </div>
+
+    <!-- Grid de Produtos (5 por linha) -->
+    <div class="product-grid">
+        
+        <!-- PRODUTO 1 -->
+        <a href="SEU_LINK_AQUI" class="product-card">
+            <img src="LINK_DA_FOTO" class="product-img">
+            <div class="product-details">
+                <div class="product-title">Microfone Lapela Wireless</div>
+                <span class="product-tag"><i>⚡ FULL</i></span>
+                <span class="product-action">Ver Oferta</span>
+            </div>
+        </a>
+
+        <!-- PRODUTO 2 -->
+        <a href="SEU_LINK_AQUI" class="product-card">
+            <img src="LINK_DA_FOTO" class="product-img">
+            <div class="product-details">
+                <div class="product-title">Kit Ferramentas 115 em 1</div>
+                <span class="product-tag"><i>⚡ FULL</i></span>
+                <span class="product-action">Ver Oferta</span>
+            </div>
+        </a>
+
+        <!-- PRODUTO 3 -->
+        <a href="SEU_LINK_AQUI" class="product-card">
+            <img src="LINK_DA_FOTO" class="product-img">
+            <div class="product-details">
+                <div class="product-title">Multímetro Digital Profissional</div>
+                <span class="product-tag">Chega amanhã</span>
+                <span class="product-action">Ver Oferta</span>
+            </div>
+        </a>
+        
+        <!-- PRODUTO 4 -->
+        <a href="SEU_LINK_AQUI" class="product-card">
+            <img src="LINK_DA_FOTO" class="product-img">
+            <div class="product-details">
+                <div class="product-title">Manta Magnética Antiestática</div>
+                <span class="product-tag"><i>⚡ FULL</i></span>
+                <span class="product-action">Ver Oferta</span>
+            </div>
+        </a>
+        
+        <!-- PRODUTO 5 -->
+        <a href="SEU_LINK_AQUI" class="product-card">
+            <img src="LINK_DA_FOTO" class="product-img">
+            <div class="product-details">
+                <div class="product-title">Estação de Solda Hikari</div>
+                <span class="product-tag">Frete Grátis</span>
+                <span class="product-action">Ver Oferta</span>
+            </div>
+        </a>
+
+    </div>
+
+</body>
+</html>
